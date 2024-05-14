@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import React, { useRef } from "react";
 import { FaSearch } from "react-icons/fa";
 
-const InputSearch = () => {
+const InputSearch = (): React.ReactElement => {
   const searchRef: any = useRef();
   const router = useRouter();
 

@@ -1,7 +1,7 @@
 import AnimeList from "../components/animelist/AnimeList";
 import Header from "../components/animelist/Header";
 
-const Home = async () => {
+const Home = async (): Promise<React.ReactElement> => {
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_BASE_URL}/top/anime?limit=24`
   );

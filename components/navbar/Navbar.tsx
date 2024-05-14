@@ -2,7 +2,7 @@ import Link from "next/link";
 import React from "react";
 import InputSearch from "./InputSearch";
 
-const Navbar = () => {
+const Navbar = (): React.ReactElement => {
   return (
     <header>
       <Link

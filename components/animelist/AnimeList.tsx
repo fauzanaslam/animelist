@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-const AnimeList = async ({ api }: any) => {
+const AnimeList = async ({ api }: any): Promise<React.ReactElement> => {
   return (
     <div className="px-2">
       <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
