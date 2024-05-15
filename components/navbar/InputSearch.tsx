@@ -11,7 +11,7 @@ const InputSearch = (): React.ReactElement => {
   const handleSearch = (event: any) => {
     event.preventDefault();
     const keyword = searchRef.current.value;
-    if (keyword.length >= 3) {
+    if (keyword.length >= 3 && keyword.trim() !== "") {
       router.push(`/search/${keyword}`);
     }
   };
