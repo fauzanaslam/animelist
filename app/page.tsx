@@ -8,9 +8,14 @@ const Home = async (): Promise<React.ReactElement> => {
     "recommendations/anime",
     "entry"
   );
-  recomendedanime = {
-    data: recomendedanime?.sort(() => 0.5 - Math.random()).slice(0, 6),
-  };
+
+  if (recomendedanime && recomendedanime.length > 0) {
+    recomendedanime = {
+      data: recomendedanime?.sort(() => 0.5 - Math.random()).slice(0, 6),
+    };
+  } else {
+    recomendedanime = [];
+  }
 
   return (
     <>
@@ -18,7 +23,7 @@ const Home = async (): Promise<React.ReactElement> => {
         <Header title="Paling Populer" />
         <AnimeList api={topAnime} />
       </section>
-      <section>
+      <section className="mb-4">
         <Header title="Rekomendasi" />
         <AnimeList api={recomendedanime} />
       </section>
