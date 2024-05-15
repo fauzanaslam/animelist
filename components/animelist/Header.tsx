@@ -7,7 +7,9 @@ type ParamsProps = {
 const Header = ({ title }: ParamsProps): React.ReactElement => {
   return (
     <div>
-      <h1 className="font-bold py-2 text-xl pt-28 md:pt-24 px-2">{title}</h1>
+      <h1 className="font-bold py-2 text-xl pt-10 px-2 text-primary">
+        {title}
+      </h1>
     </div>
   );
 };
