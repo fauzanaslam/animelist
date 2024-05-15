@@ -26,21 +26,25 @@ const Pagination = ({ page, setPage, lastPage }: ParamsProps) => {
 
   return (
     <div className="flex items-center justify-center text-2xl gap-2 py-4">
-      <button
-        onClick={handlePrevPage}
-        className="hover:text-secondary ease-in-out duration-300"
-      >
-        prev
-      </button>
+      {page <= 1 ? null : (
+        <button
+          onClick={handlePrevPage}
+          className="hover:text-secondary ease-in-out duration-300"
+        >
+          prev
+        </button>
+      )}
       <p>
         {page} of {lastPage}
       </p>
-      <button
-        onClick={handleNextPage}
-        className="hover:text-secondary ease-in-out duration-300"
-      >
-        next
-      </button>
+      {page >= lastPage ? null : (
+        <button
+          onClick={handleNextPage}
+          className="hover:text-secondary ease-in-out duration-300"
+        >
+          next
+        </button>
+      )}
     </div>
   );
 };
