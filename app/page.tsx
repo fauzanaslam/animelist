@@ -1,4 +1,4 @@
-import { getAnime, getRecommendedAnime } from "@/libs/api-lib";
+import { getAnime, getRecommendedAnime, reproduce } from "@/libs/api-lib";
 import AnimeList from "../components/animelist/AnimeList";
 import Header from "../components/animelist/Header";
 
@@ -8,14 +8,7 @@ const Home = async (): Promise<React.ReactElement> => {
     "recommendations/anime",
     "entry"
   );
-
-  if (recomendedanime && recomendedanime.length > 0) {
-    recomendedanime = {
-      data: recomendedanime?.sort(() => 0.5 - Math.random()).slice(0, 6),
-    };
-  } else {
-    recomendedanime = [];
-  }
+  recomendedanime = reproduce(recomendedanime, 6);
 
   return (
     <>
