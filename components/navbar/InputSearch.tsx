@@ -11,7 +11,15 @@ const InputSearch = (): React.ReactElement => {
   const handleSearch = (event: any) => {
     event.preventDefault();
     const keyword = searchRef.current.value;
-    router.push(`/search/${keyword}`);
+    if (keyword.length >= 3) {
+      router.push(`/search/${keyword}`);
+    }
+  };
+
+  const handlekeyDown = (event: any) => {
+    if (event.key === "Enter") {
+      handleSearch(event);
+    }
   };
 
   return (
@@ -21,6 +29,7 @@ const InputSearch = (): React.ReactElement => {
         placeholder=" cari anime..."
         className=" w-full p-2 rounded"
         ref={searchRef}
+        onKeyDown={handlekeyDown}
       />
       <button className="absolute end-2 top-2" onClick={handleSearch}>
         <FaSearch size={24} />

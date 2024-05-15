@@ -6,11 +6,11 @@ const AnimeList = async ({ api }: any): Promise<React.ReactElement> => {
   return (
     <div className="px-2">
       <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-        {api.data.map((data: any) => {
+        {api.data?.map((data: any) => {
           return (
             <Link
               href={`/anime/${data.mal_id}`}
-              className="shadow-lg hover:scale-105 duration-300 ease-in-out transition-all cursor-pointer"
+              className="hover:scale-105 duration-300 ease-in-out transition-all cursor-pointer"
               key={data.mal_id}
             >
               <Image

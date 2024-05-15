@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Gabarito } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/navbar/Navbar";
 
-const inter = Inter({ subsets: ["latin"] });
+const gabarito = Gabarito({
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
-  title: "ANIME LIST",
-  description: "CUY UNIVERSE 5",
+  title: "JUST4WIBU",
+  description: "WIBU ONLY",
 };
 
 export default function RootLayout({
@@ -17,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={gabarito.className}>
         <Navbar />
         {children}
       </body>
