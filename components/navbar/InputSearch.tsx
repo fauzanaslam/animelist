@@ -31,7 +31,11 @@ const InputSearch = (): React.ReactElement => {
         ref={searchRef}
         onKeyDown={handlekeyDown}
       />
-      <button className="absolute end-2 top-2" onClick={handleSearch}>
+      <button
+        className="absolute end-2 top-2"
+        onClick={handleSearch}
+        aria-label="search"
+      >
         <FaSearch size={24} />
       </button>
     </div>
