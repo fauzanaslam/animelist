@@ -1,14 +1,26 @@
 import { getAnime } from "@/libs/api-lib";
 import React from "react";
 import VideoPlayer from "../../../components/util/VideoPlayer";
+import CollectionButton from "../../../components/animelist/CollectionButton";
+import { authUserSession } from "@/libs/auth-lib";
+import prisma from "@/libs/prisma";
 
 const Page = async ({ params: { id } }: any) => {
   const anime = await getAnime(`anime/${id}`);
+  const user: any = await authUserSession();
+  const collection = await prisma.collection.findFirst({
+    where: { user_email: user?.email, anime_mal_id: id },
+  });
 
   return (
     <div className="pt-32 md:pt-24 px-2">
       <VideoPlayer youtubeId={anime.data.trailer.youtube_id} />
-      <h1 className="font-semibold text-4xl">{anime.data.title}</h1>
+      <div className="flex items-center gap-4 my-2">
+        <h1 className="font-semibold text-4xl">{anime.data.title}</h1>
+        {!collection && user && (
+          <CollectionButton anime_mal_id={id} user_email={user?.email} />
+        )}
+      </div>
       <hr />
       <p className="text-primary">{anime.data.synopsis}</p>
       <div className="flex items-center gap-2">
