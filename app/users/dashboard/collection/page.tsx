@@ -23,7 +23,7 @@ const Page = async () => {
           >
             <Image src="" alt="" width={250} height={250} className="w-full" />
             <div className="absolute flex items-center justify-center bottom-0 w-full bg-accent h-16">
-              <h5 className="text-xl text-center">{anime.anime_mal_id}</h5>
+              <h5 className="text-xl text-center">{anime.anime_mal_id}a</h5>
             </div>
           </Link>
         ))}
